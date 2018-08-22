@@ -53,7 +53,7 @@ def get_income():
             try:
                 hourly = input('How much do you make an hour: ')
                 hourly = hourly.lstrip('$')
-                hourly = int(hourly)
+                hourly = float(hourly)
                 salary = hourly * 2080
                 return int(salary)
                 x += 1
