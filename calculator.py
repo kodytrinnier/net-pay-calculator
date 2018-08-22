@@ -67,6 +67,11 @@ def get_income():
         while x == 0:
             try:
                 salary = input('How much do you make a year: ')
+                if 'k' in salary:
+                    salary = salary.rstrip('k')
+                    salary = salary.lstrip('$')
+                    salary = int(salary) * 1000 
+                    return salary
                 salary = salary.lstrip('$')
                 salary = int(salary)
                 return int(salary)
