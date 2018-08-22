@@ -56,7 +56,6 @@ def get_income():
                 hourly = float(hourly)
                 salary = hourly * 2080
                 return int(salary)
-                x += 1
             except NameError as err:
                 print('Handling NameError:', err)
                 raise
@@ -71,7 +70,6 @@ def get_income():
                 salary = salary.lstrip('$')
                 salary = int(salary)
                 return int(salary)
-                x += 1
             except NameError as err:
                 print('Handling NameError:', err)
                 raise
