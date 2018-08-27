@@ -30,12 +30,10 @@ def get_income_type():
             print("\nHourly has been selected\n")
             itype = 0
             return itype
-            loop = False
         elif choice == "2":
             print("\nSalary has been selected\n")
             itype = 1
             return itype
-            loop = False
         elif choice == "3":
             print("\nExiting...\n")
             sys.exit(0)
@@ -67,10 +65,11 @@ def get_income():
         while x == 0:
             try:
                 salary = input('How much do you make a year: ')
-                if 'k' in salary:
+                if 'k'.casefold() in salary.casefold():
                     salary = salary.rstrip('k')
+                    salary = salary.rstrip('K')
                     salary = salary.lstrip('$')
-                    salary = int(salary) * 1000 
+                    salary = int(salary) * 1000
                     return salary
                 salary = salary.lstrip('$')
                 salary = int(salary)
