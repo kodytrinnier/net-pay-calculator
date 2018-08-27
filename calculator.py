@@ -40,7 +40,6 @@ def get_income_type():
         else:
             print("\nWrong option selection. Please enter a valid menu option...\n")
             time.sleep(1)
-    return itype
 
 
 def get_income():
