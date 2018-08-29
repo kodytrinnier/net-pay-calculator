@@ -53,11 +53,8 @@ def get_income():
                 hourly = float(hourly)
                 salary = hourly * 2080
                 return int(salary)
-            except NameError as err:
-                print('Handling NameError:', err)
-                raise
-            except ValueError as valerr:
-                print('Handling ValueError:', valerr)
+            except NameError, ValueError as err:
+                print('Handling Error:', err)
                 raise
     else:
         x = 0
