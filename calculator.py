@@ -81,25 +81,32 @@ def get_income():
 def get_tax_bracket(salary):
     if salary <= 9525:
         bracket = .90
+        tax_owed = 0
     if 9526 <= salary <= 38700:
         bracket = .88
+        tax_owed = 952.5
     if 38701 <= salary <= 82500:
         bracket = .78
+        tax_owed = 4453.5
     if 82501 <= salary <= 157500:
         bracket = .76
+        tax_owed = 14089.5
     if 157501 <= salary <= 200000:
         bracket = .68
+        tax_owed = 32089.5
     if 200001 <= salary <= 500000:
         bracket = .65
+        tax_owed = 45689.5
     if salary > 500000:
         bracket = .63
-    return bracket
+        tax_owed = 150689.5
+    return bracket, tax_owed
 
 
 def get_net_income():
     salary = get_income()
-    bracket = get_tax_bracket(salary)
-    net_income = salary * bracket
+    bracket, tax_owed = get_tax_bracket(salary)
+    net_income = (salary - tax_owed) * bracket
     return int(net_income)
 
 
