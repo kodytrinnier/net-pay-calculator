@@ -1,5 +1,6 @@
 import time
 import sys
+sys.tracebacklimit=0
 
 
 def print_menu():
@@ -53,9 +54,9 @@ def get_income():
                 hourly = float(hourly)
                 salary = hourly * 2080
                 return int(salary)
-            except NameError, ValueError as err:
+            except (NameError,ValueError) as err:
                 print('Handling Error:', err)
-                raise
+                raise err
     else:
         x = 0
         while x == 0:
@@ -70,9 +71,8 @@ def get_income():
                 salary = salary.lstrip('$')
                 salary = int(salary)
                 return int(salary)
-            except NameError as err:
-                print('Handling NameError:', err)
-                raise
+            except (NameError,ValueError) as err:
+                raise err
 
 
 def get_tax_bracket(salary):
