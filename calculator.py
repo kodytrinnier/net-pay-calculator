@@ -55,7 +55,6 @@ def get_income():
                 salary = hourly * 2080
                 return int(salary)
             except (NameError,ValueError) as err:
-                print('Handling Error:', err)
                 raise err
     else:
         x = 0
