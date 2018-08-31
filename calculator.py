@@ -1,31 +1,33 @@
 import time
 import sys
-sys.tracebacklimit=0
+sys.tracebacklimit = 0
+
+class Menu():
+    def __init__(self, option1, option2, option3, option4):
+        self.option1 = option1
+        self.option2 = option2
+        self.option3 = option3
+        self.option4 = option4
 
 
-def print_menu():
-    print(30 * "-" + "MENU" + 30 * "-")
-    print(22 * "-" + "Net Income Calculator" + 21 * "-")
-    print("1. Annual")
-    print("2. Monthly")
-    print("3. BiWeekly")
-    print("4. Exit Program")
-    print(65 * "-")
-
-
-def print_menu_income():
-    print(30 * "-" + "MENU" + 30 * "-")
-    print(22 * "-" + "Net Income Calculator" + 21 * "-")
-    print("1. Hourly")
-    print("2. Salary")
-    print("3. Exit Program")
-    print(65 * "-")
+    def print_menu(self, option1="", option2="", option3="", option4=""):
+        print(30 * "-" + "MENU" + 30 * "-")
+        print(22 * "-" + "Net Income Calculator" + 21 * "-")
+        if option1:
+            print("{}".format(option1))
+        if option2:
+            print("{}".format(option2))
+        if option3:
+            print("{}".format(option3))
+        if option4:
+            print("{}".format(option4))
+        print(65 * "-")
 
 
 def get_income_type():
     loop = True
     while loop:
-        print_menu_income()
+        print_menu_income = Menu.print_menu("", "1. Hourly", "2. Salary", "3. Exit")
         choice = input("Are you paid hourly or salary? [1-3]: ")
         if choice == "1":
             print("\nHourly has been selected\n")
@@ -121,7 +123,7 @@ def net_biweekly():
 def main():
     loop = True
     while loop:
-        print_menu()
+        income_menu = Menu.print_menu("", "1. Annual", "2. Hourly", "3. Monthly", "4. Exit")
         choice = input("For which timeframe would you like to calculate your net income? [1-4]: ")
         if choice == "1":
             print("\nAnnual has been selected\n")
