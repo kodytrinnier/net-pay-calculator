@@ -8,9 +8,10 @@ class Menu():
         self.option2 = option2
         self.option3 = option3
         self.option4 = option4
+        self.option5 = option5
 
 
-    def print_menu(self, option1="", option2="", option3="", option4=""):
+    def print_menu(self, option1="", option2="", option3="", option4="", option5=""):
         print(30 * "-" + "MENU" + 30 * "-")
         print(22 * "-" + "Net Income Calculator" + 21 * "-")
         if option1:
@@ -21,6 +22,8 @@ class Menu():
             print("{}".format(option3))
         if option4:
             print("{}".format(option4))
+        if option5:
+            print("{}".format(option5))
         print(65 * "-")
 
 
@@ -120,27 +123,38 @@ def net_biweekly():
     return int(biweekly)
 
 
+def net_hourly():
+    monthly = net_monthly()
+    hourly = monthly / 160
+    return int(hourly)
+
+
 def main():
     loop = True
     while loop:
-        income_menu = Menu.print_menu("", "1. Annual", "2. Hourly", "3. Monthly", "4. Exit")
-        choice = input("For which timeframe would you like to calculate your net income? [1-4]: ")
+        income_menu = Menu.print_menu("", "1. Annual", "2. Hourly", "3. Monthly", "4. BiWeekly", "5. Exit")
+        choice = input("For which timeframe would you like to calculate your net income? [1-5]: ")
         if choice == "1":
             print("\nAnnual has been selected\n")
             annual = get_net_income()
             print("\nYour net annual income is ${}\n".format(annual))
             loop = False
         elif choice == "2":
-            print("\nMonthly has been selected\n")
-            monthly = net_monthly()
-            print("\nYour net monthly income is ${}\n".format(monthly))
+            print("\nHourly has been selected\n")
+            hourly = net_hourly()
+            print("\nYour net hourly income is ${}\n".format(hourly))
             loop = False
         elif choice == "3":
+            print("\nMonthly has been selected\n")
+            monthly = net_monthly()
+            print("\nYour net Monthly income is ${}\n".format(monthly))
+            loop = False
+        elif choice == "4":
             print("\nBiWeekly has been selected\n")
             biweekly = net_biweekly()
             print("\nYour net BiWeekly income is ${}\n".format(biweekly))
             loop = False
-        elif choice == "4":
+        elif choice == "5":
             print("\nExiting...\n")
             sys.exit(0)
         else:
